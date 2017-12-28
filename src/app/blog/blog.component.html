@@ -1,0 +1,92 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example that shows off a blog page with a list of posts.">
+    <title>Blog Site Example</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <!--<![endif]-->
+    
+    
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="css/layouts/blog-old-ie.css">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+        <!--<link rel="stylesheet" href="./blog.component.css"> -->
+        <!--<![endif]-->
+    
+</head>
+<body>
+    <div id="layout" class="pure-g">
+        <div class="sidebar pure-u-1 pure-u-md-1-4">
+            <div class="title">
+                <h1 class="brand-title">Blog site</h1>
+                <h2 class="brand-tagline">Creating a blog layout using Pure</h2>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a class="pure-button" href="http://purecss.io">Pure</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="pure-button" href="http://yuilibrary.com">YUI Library</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="content pure-u-1 pure-u-md-3-4">
+            <div>
+                <!-- A wrapper for all the blog posts -->
+                <div class="posts">
+                    
+                    <div class="posts">
+                        <h1 class="content-subhead">Write a new Blog</h1>
+                        <form class="pure-form" enctype='application/json' action="myurl" method="POST" name="blogForm" id="form-id">
+                            <fieldset class="pure-group" >
+                                <input type="text" name="yourNameText" [(ngModel)]="yourName" class="pure-input-1-2" placeholder="Your name" id="yourName">
+                                <input type="text" name="title" [(ngModel)]="title"class="pure-input-1-2" placeholder="Blog post title" id="title">
+                                <textarea class="pure-input-1-2" name="body" [(ngModel)]="body" placeholder="Write your blog post here" id="body"></textarea>
+                            </fieldset>
+                        <button type="button" class="pure-button pure-input-1-2 pure-button-primary" (click)="sendToServer()">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        
+            <div *ngFor="let blog of blogs">
+                <section>
+                    <header class="post-header">
+                
+                        <h2 class="post-title" >{{blog.title}}</h2>
+                        <p class="post-meta">
+                        By <a class="post-author" href="#">{{blog.name}}</a>
+                        </p>
+                        <p>{{myTime}}</p>
+                    </header>
+                <div class="post-description">
+                    <p>{{blog.body}}</p>
+                </div>
+                <button class="button-success pure-button pure-button-disabled" >Comment</button>
+                <button (click)="delete(blog.id)">Delete</button>
+                </section>
+            </div>
+            
+        </div> 
+    
+    <!-- <button class="pure-button button-warning pure-button-active" id="buttonId" (click)="sendToServer()">Send</button>
+    -->
+
+    </div> 
+</body>
+</html>
