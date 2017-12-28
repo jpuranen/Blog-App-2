@@ -19,8 +19,7 @@ export class BlogComponent implements OnInit {
   title: string;
   body: string;
   idtoberemoved: number = -1;
-  //myTime: number = new Date().get;
- 
+   
   constructor(blogService : BlogService) {
     this.blogService = blogService;
   }
@@ -34,7 +33,7 @@ ngOnInit() {
 
 sendToServer() {
   console.log("blogs.component.sendToServer sending blogs...")
-  let body = {"name": this.yourName, "title": this.title, "body": this.body, "time": this.myTime}
+  let body = {"name": this.yourName, "title": this.title, "body": this.body}
   this.blogService.posti((result) => {this.blogs.push(result)}, body);
 } 
 delete(id : number) {
