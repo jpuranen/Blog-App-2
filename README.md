@@ -1,4 +1,5 @@
 # Blog-App-rel2
+https://github.com/jpuranen/Blog-App-2
 Blog-App Angular2+ project
 
 ### About this repository
